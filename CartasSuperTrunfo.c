@@ -23,8 +23,8 @@ int main() {
     char nome_cidade[57]; // considerado maior nome de cidade do mundo com 58 letras para determinar tamanho do char
     
     int populacao;
-    double area;
-    double pib;
+    float area;
+    float pib;
     int pontos_turisticos;
 
     
@@ -32,25 +32,37 @@ int main() {
     printf("__________________\n\n");
 
     printf("Digite o código da Cidade:\n");
-    scanf(" %s", &cod_cidade);
+    scanf(" %s", cod_cidade);
     
     printf("Digite o nome da Cidade:\n");
-    scanf(" %s", &nome_cidade);
+    scanf(" %s", nome_cidade);
 
     printf("Digite a população da Cidade:\n");
     scanf(" %d", &populacao);
 
+    while (getchar() != '\n');
+
     printf("Digite a área da Cidade:\n");
-    scanf("%f", area);
+    scanf(" %f", &area);
+
+    while (getchar() != '\n');
 
     printf("Digite o PIB da Cidade:\n");
-    scanf("%f", pib);
+    scanf(" %f", &pib);
 
     printf("Digite a quantidade de pontos turísticos da Cidade:\n");
-    scanf("%d", &pontos_turisticos);
+    scanf(" %d", &pontos_turisticos);
     
 
-    printf("Código da carta: %s;\n");
+    printf("\n------------------------------------\n");
+    printf("Código da carta: %s;\n", cod_cidade);
+    printf("Cidade: %s;\n", nome_cidade);
+    printf("População: %d;\n", populacao);
+    printf("Cidade: %f;\n", area);
+    printf("PIB: %f;\n", pib);
+    printf("Número de pontos turísticos: %d;\n", pontos_turisticos);
+    printf("------------------------------------\n");
+
 
     return 0;
 }

@@ -18,5 +18,40 @@ int main() {
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
+
+    char cod_cidade[4];
+    char nome_cidade[57]; // considerado maior nome de cidade do mundo com 58 letras para determinar tamanho do char
+    
+    int populacao;
+    double area;
+    double pib;
+    int pontos_turisticos;
+
+    
+    printf("Cadastro de Cartas\n");
+    printf("__________________\n\n");
+
+    printf("Digite o código da Cidade:\n");
+    scanf(" %s", &cod_cidade);
+    
+    printf("Digite o nome da Cidade:\n");
+    scanf(" %s", &nome_cidade);
+
+    printf("Digite a população da Cidade:\n");
+    scanf(" %d", &populacao);
+
+    printf("Digite a área da Cidade:\n");
+    scanf("%f", area);
+
+    printf("Digite o PIB da Cidade:\n");
+    scanf("%f", pib);
+
+    printf("Digite a quantidade de pontos turísticos da Cidade:\n");
+    scanf("%d", &pontos_turisticos);
+    
+
+    printf("Código da carta: %s;\n");
+
     return 0;
 }
+

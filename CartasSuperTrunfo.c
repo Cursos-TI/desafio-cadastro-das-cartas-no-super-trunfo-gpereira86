@@ -6,20 +6,6 @@
 // Siga os comentários para implementar cada parte do desafio.
 //Teste larissa
 
-#define ESTADOS 8
-#define CIDADES 4
-
-typedef struct {
-    char cod_cidade[4];
-    char nome_cidade[57];
-    int populacao;
-    float area;
-    float pib;
-    int pontos_turisticos;
-} Cidade;
-
-const char ESTADOS_LETRAS[ESTADOS] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'};
-
 int main() {
     // Sugestão: Defina variáveis separadas para cada atributo da cidade.
     // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
@@ -33,50 +19,144 @@ int main() {
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
 
-    Cidade matriz[ESTADOS][CIDADES];
-    float densidadePopulacional;
-    float pibPerCapita;
+    char cod_cidade_c1[4], cod_cidade_c2[4];
+    char nome_cidade_c1[57], nome_cidade_c2[57]; // considerado maior nome de cidade do mundo com 58 letras para determinar tamanho do char
 
-    printf("Digite os dados das cidades:\n");
-    for (int i = 0; i < ESTADOS; i++) {
-        for (int j = 0; j < CIDADES; j++) {
-            snprintf(matriz[i][j].cod_cidade, sizeof(matriz[i][j].cod_cidade), "%c%02d", ESTADOS_LETRAS[i], j + 1);
-            
-            printf("\nCidade [%s]:\n", matriz[i][j].cod_cidade);
-            printf("Nome da cidade: ");
-            getchar(); // Limpa buffer para fgets
-            fgets(matriz[i][j].nome_cidade, sizeof(matriz[i][j].nome_cidade), stdin);
-            printf("População: ");
-            scanf("%d", &matriz[i][j].populacao);
-            printf("Área (km²): ");
-            scanf("%f", &matriz[i][j].area);
-            printf("PIB (em bilhões): ");
-            scanf("%f", &matriz[i][j].pib);
-            printf("Número de pontos turísticos: ");
-            scanf("%d", &matriz[i][j].pontos_turisticos);
-        }
-    }
+    int populacao_c1, populacao_c2;
+    float area_c1, area_c2;
+    float pib_c1, pib_c2;
+    int pontos_turisticos_c1, pontos_turisticos_c2;
+    float densidadePopulacional_c1, densidadePopulacional_c2;
+    float pibPerCapita_c1, pibPerCapita_c2;
+    float superPoder_c1, superPoder_c2;
+    int teste;
+    int resultado_c1 = 7;
 
-    printf("\nDados das cidades:\n");
-    for (int i = 0; i < ESTADOS; i++) {
-        printf("\n=== Estado %c ===\n", ESTADOS_LETRAS[i]);
-        for (int j = 0; j < CIDADES; j++) {
-            printf("\nCidade [%s]:\n", matriz[i][j].cod_cidade);
-            printf("Nome: %s", matriz[i][j].nome_cidade);
-            printf("População: %d\n", matriz[i][j].populacao);
-            printf("Área: %.2f km²\n", matriz[i][j].area);
-            printf("PIB: %.2f bilhões\n", matriz[i][j].pib);
-            printf("Pontos turísticos: %d\n", matriz[i][j].pontos_turisticos);
-            
-            densidadePopulacional = (float)matriz[i][j].populacao /  matriz[i][j].area;
-            pibPerCapita = matriz[i][j].pib / (float)matriz[i][j].populacao;
+    
+    printf("Cadastro de Cartas\n");
+    printf("------------------\n\n");
 
-            printf("Densidade Populacional: %.2f pessoas por km²\n", densidadePopulacional);
-            printf("PIB per Capita: %.2f bilhão por pessoa\n", pibPerCapita);
-            printf("------------------------------\n");
-        }
-    }
+    printf("Obs.: O código da cidade deve ser composto pela letra de 'A a H' que representa o estado,\nseguido do numeral de '01' a '04' que representa a cidade (ex.:A01, B02)\n\n");
 
+    printf("=> Cadastre a primeira carta: \n\n");
+    printf("Digite o código da Cidade:\n");
+    scanf("%s", cod_cidade_c1);
+    
+    printf("Digite o nome da Cidade:\n");
+    scanf("%s", nome_cidade_c1);
+
+    printf("Digite a população da Cidade:\n");
+    scanf("%d", &populacao_c1);
+
+    printf("Digite a área da Cidade (em km²):\n");
+    scanf("%f", &area_c1);
+
+    printf("Digite o PIB da Cidade (em Milhões):\n");
+    scanf("%f", &pib_c1);
+
+    printf("Digite a quantidade de pontos turísticos da Cidade:\n");
+    scanf("%d", &pontos_turisticos_c1);
+
+    densidadePopulacional_c1 = (float)populacao_c1 / area_c1;
+    pibPerCapita_c1 = (pib_c1 * 1000000.0) / (float)populacao_c1;
+    superPoder_c1 = (float)(populacao_c1 + pontos_turisticos_c1) + area_c1 + pib_c1 + densidadePopulacional_c1 + pibPerCapita_c1;
+    
+    
+    printf("\n------------------------------------\n");
+    printf("Carta %s cadastrada com sucesso\n", cod_cidade_c1);
+    printf("------------------------------------\n");
+    printf("Cidade: %s\n", nome_cidade_c1);
+    printf("População: %d habitantes\n", populacao_c1);
+    printf("Área da Cidade: %.2f km²\n", area_c1);
+    printf("PIB: %.2f milhões de UM$\n", pib_c1);
+    printf("Número de pontos turísticos: %d\n", pontos_turisticos_c1);
+    printf("Densidade Populacional: %.5f habitantes/km²\n", densidadePopulacional_c1);
+    printf("PIB per capita Populacional: %.2f UM$ por habidatente\n", pibPerCapita_c1);
+    printf("Super poder: %.3f", superPoder_c1);
+    printf("------------------------------------\n");
+    printf("\n************************************\n\n");
+
+
+    printf("=> Cadastre a segunda carta: \n\n");
+
+    printf("Digite o código da Cidade:\n");
+    scanf("%s", cod_cidade_c2);
+    
+    printf("Digite o nome da Cidade:\n");
+    scanf("%s", nome_cidade_c2);
+
+    printf("Digite a população da Cidade:\n");
+    scanf("%d", &populacao_c2);
+
+    printf("Digite a área da Cidade (em km²):\n");
+    scanf("%f", &area_c2);
+
+    printf("Digite o PIB da Cidade (em Milhões):\n");
+    scanf("%f", &pib_c2);
+
+    printf("Digite a quantidade de pontos turísticos da Cidade:\n");
+    scanf("%d", &pontos_turisticos_c2);
+
+    densidadePopulacional_c2 = (float)populacao_c2 / area_c2;
+    pibPerCapita_c2 = (pib_c2 * 1000000.0) / (float)populacao_c2;
+    superPoder_c2 = (float)(populacao_c2 + pontos_turisticos_c2) + area_c2 + pib_c2 + densidadePopulacional_c2 + pibPerCapita_c2;
+    
+    printf("\n------------------------------------\n");
+    printf("Carta %s cadastrada com sucesso\n", cod_cidade_c2);
+    printf("------------------------------------\n");
+    printf("Cidade: %s\n", nome_cidade_c2);
+    printf("População: %d habitantes\n", populacao_c2);
+    printf("Área da Cidade: %.2f km²\n", area_c2);
+    printf("PIB: %.2f milhões de UM$\n", pib_c2);
+    printf("Número de pontos turísticos: %d\n", pontos_turisticos_c2);
+    printf("Densidade Populacional: %.5f habitantes/km²\n", densidadePopulacional_c2);
+    printf("PIB per capita Populacional: %.2f UM$ por habidatente\n", pibPerCapita_c2);
+    printf("Super poder: %.3f", superPoder_c2);
+    printf("------------------------------------\n");
+    printf("\n************************************\n\n"); 
+
+
+    printf("Compando as cartas\n");
+    printf("==================\n\n");
+
+    printf("obs.: Na tabela abaixo ganha a carta com nota '1' para o critério,\nconsequentemente quem obteve resultado '0' perde.\nNo final a carta com maior pontuação total ganha a disputa.\n\n"); 
+    
+    printf("Critério ---------------- Carta %s ------ Carta %s\n", cod_cidade_c1, cod_cidade_c2);
+
+    teste = populacao_c1 > populacao_c2;
+    resultado_c1 -= teste;
+    printf("População: --------------     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = area_c1 > area_c2;
+    resultado_c1 -= teste;
+    printf("Área: -------------------     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = pib_c1 > pib_c2;
+    resultado_c1 -= teste;
+    printf("PIB: --------------------     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = pontos_turisticos_c1 > pontos_turisticos_c2;
+    resultado_c1 -= teste;
+    printf("Pontos turísticos: ------     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = densidadePopulacional_c1 < densidadePopulacional_c2;
+    resultado_c1 -= teste;
+    printf("Densidade populacional: -     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = pibPerCapita_c1 > pibPerCapita_c2;
+    resultado_c1 -= teste;
+    printf("PIB per capita: ---------     %d    ------     %d   \n", teste, (1 - teste));
+
+    teste = superPoder_c1 > superPoder_c2;
+    resultado_c1 -= teste;
+    printf("Super poder: ------------     %d    ------     %d   \n", teste, (1 - teste));
+
+    printf("----------------------------------------------------\n");
+    printf("TOTAL: ------------------     %d    ------     %d   \n", resultado_c1, (7 - resultado_c1));
+    printf("----------------------------------------------------\n\n");
+
+    printf("====================================================\n");   
+    
     return 0;
 }
 

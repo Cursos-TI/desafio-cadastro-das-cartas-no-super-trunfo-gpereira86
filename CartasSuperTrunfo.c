@@ -30,7 +30,7 @@ int main() {
     float pibPerCapita_c1, pibPerCapita_c2;
     float superPoder_c1, superPoder_c2;
     int teste;
-    int resultado_c1 = 7;
+    int resultado_c1;
 
     
     printf("Cadastro de Cartas\n");
@@ -121,41 +121,41 @@ int main() {
 
     printf("obs.: Na tabela abaixo ganha a carta com nota '1' para o critério,\nconsequentemente quem obteve resultado '0' perde.\nNo final a carta com maior pontuação total ganha a disputa.\n\n"); 
     
+    printf("====================================================\n");  
     printf("Critério ---------------- Carta %s ------ Carta %s\n", cod_cidade_c1, cod_cidade_c2);
+    printf("====================================================\n");  
 
     teste = populacao_c1 > populacao_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("População: --------------     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = area_c1 > area_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("Área: -------------------     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = pib_c1 > pib_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("PIB: --------------------     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = pontos_turisticos_c1 > pontos_turisticos_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("Pontos turísticos: ------     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = densidadePopulacional_c1 < densidadePopulacional_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("Densidade populacional: -     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = pibPerCapita_c1 > pibPerCapita_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("PIB per capita: ---------     %d    ------     %d   \n", teste, (1 - teste));
 
     teste = superPoder_c1 > superPoder_c2;
-    resultado_c1 -= teste;
+    resultado_c1 += teste;
     printf("Super poder: ------------     %d    ------     %d   \n", teste, (1 - teste));
 
-    printf("----------------------------------------------------\n");
+    printf("====================================================\n\n");
     printf("TOTAL: ------------------     %d    ------     %d   \n", resultado_c1, (7 - resultado_c1));
-    printf("----------------------------------------------------\n\n");
-
-    printf("====================================================\n");   
+    printf("====================================================\n\n");   
     
     return 0;
 }
